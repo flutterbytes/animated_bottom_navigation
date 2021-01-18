@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class BottomNavPage extends StatefulWidget {
   @override
@@ -37,10 +38,10 @@ class _BottomNavPageState extends State<BottomNavPage>
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey[600],
         currentIndex: selectedIndex,
-        iconSize: 32,
         onTap: (index) {
           onSelectedAnimation.reset();
           onSelectedAnimation.forward();
@@ -55,9 +56,9 @@ class _BottomNavPageState extends State<BottomNavPage>
         },
         items: [
           BottomNavigationBarItem(
-            icon: AnimatedIcon(
-                icon: AnimatedIcons.home_menu,
-                progress: selectedIndex == 0
+            icon: Lottie.asset("assets/lottie/bookmark.json",
+                height: 40,
+                controller: selectedIndex == 0
                     ? onSelectedAnimation
                     : previousIndex == 0
                         ? onChangedAnimation
@@ -65,9 +66,9 @@ class _BottomNavPageState extends State<BottomNavPage>
             label: "Menu",
           ),
           BottomNavigationBarItem(
-            icon: AnimatedIcon(
-                icon: AnimatedIcons.event_add,
-                progress: selectedIndex == 1
+            icon: Lottie.asset("assets/lottie/cash.json",
+                height: 40,
+                controller: selectedIndex == 1
                     ? onSelectedAnimation
                     : previousIndex == 1
                         ? onChangedAnimation
@@ -75,9 +76,9 @@ class _BottomNavPageState extends State<BottomNavPage>
             label: "Events",
           ),
           BottomNavigationBarItem(
-            icon: AnimatedIcon(
-                icon: AnimatedIcons.play_pause,
-                progress: selectedIndex == 2
+            icon: Lottie.asset("assets/lottie/credit.json",
+                height: 40,
+                controller: selectedIndex == 2
                     ? onSelectedAnimation
                     : previousIndex == 2
                         ? onChangedAnimation
